@@ -4,75 +4,111 @@
   <title>Clown Diary</title>
   <link rel="stylesheet" href="index.css">
   <link rel="icon" href="alt.ico" />
-  <script src ="entry.js"></script>
+  <script src="entry.js"></script>
+  <script src="entries.js"></script>
+
   <script>
+    const one_day_in_millis = 1000 * 60 * 60 * 24
 
 
-    const renderEntry = (parent,entry)=>{
-        console.log("TODO")
-        const ele = document.createElement("div");
-        ele.id = "entry";
-        const container = document.createElement("div");
-        container.id="container";
-        
+    const renderEntry = (reference_date, days_since_last_even, parent, entry) => {
+      if (entry.date > days_since_last_even) {
+        return;
+      }
 
-        const text = document.createElement("div");
-        text.innerHTML = entry.text;
-        text.id = "text";
-        const icon = document.createElement("img");
-        icon.src =entry.icon;
-        icon.id ="icon";
-        const title = document.createElement("div");
-        title.id="title";
-        title.innerHTML = entry.title;
-        const date = document.createElement("div");
-        date.id="date";
-        date.innerHTML = "TODO: CALCULATE DATE FROM LAST EVEN MONTH";
-        const wordsContainer = document.createElement("div");
-        wordsContainer.id="words-container";
+      const calculated_date = new Date();
+      calculated_date.setDate(reference_date.getDate() + entry.date);
+      const ele = document.createElement("div");
+      ele.id = "entry";
+      const container = document.createElement("div");
+      container.id = "container";
 
-        const label = document.createElement("span");
-        label.id="label";
-        label.innerHTML = `Words Of The Day:`;
 
-        const words = document.createElement("span");
-        words.id="words";
-        words.innerHTML = entry.words_of_the_day;
-        wordsContainer.append(label);
-        wordsContainer.append(words);
+      const text = document.createElement("div");
+      text.innerHTML = entry.text;
+      text.id = "text";
+      const icon = document.createElement("img");
+      icon.src = entry.icon;
+      icon.id = "icon";
+      const title = document.createElement("div");
+      title.id = "title";
+      title.innerHTML = entry.title;
+      const date = document.createElement("div");
+      date.id = "date";
+      date.innerHTML = calculated_date.toLocaleDateString();
+      const wordsContainer = document.createElement("div");
+      wordsContainer.id = "words-container";
 
-        container.append(icon);
-        container.append(text);
+      const label = document.createElement("span");
+      label.id = "label";
+      label.innerHTML = `Words Of The Day:`;
 
-        ele.append(title);
-        ele.append(date);
-        ele.append(container);
+      const words = document.createElement("span");
+      words.id = "words";
+      words.innerHTML = entry.words_of_the_day;
+      wordsContainer.append(label);
+      wordsContainer.append(words);
 
-        ele.append(wordsContainer);
+      container.append(icon);
+      container.append(text);
 
-        parent.append(ele);
+      ele.append(title);
+      ele.append(date);
+      ele.append(container);
+
+      ele.append(wordsContainer);
+
+      parent.append(ele);
     }
 
-    window.onload = ()=>{
+    /*
+      get todays' date. 
+       figure out how many days its been since the first day of the last even month
+       once i have that number, go through all entries
+       if the entry's date is >= todays number, render it
+
+       this should loop on a two month cycle
+
+       the point is both to have a kind of 'dracula daily' vibe
+       and so that if you visit once you're unlikely to get the full story
+       or even know you're missing anything
+
+       and if you visit later it will be DIFFERENT and you won't know why
+       unless you waste
+    */
+    const renderEntriesTillToday = () => {
+      const parent = document.querySelector("#journal");
+      const today = new Date();
+      //also yes its "even" by 0 index, not one. 
+      //so even months should be january, march, may, july, september, november
+      //this'll also prevent us from having to care about 0 minus 1 being not valid
+      //since zero is even 
+      let last_even_month = today.getMonth() % 2 === 0 ? today.getMonth() : today.getMonth() - 1;
+
+      //since we KNOW that january is an even month for our purposes, we don't even have to care about year roll over
+      //convinient
+      const last_even_month_date_zero = new Date(today.getFullYear(), last_even_month, 1)
+
+      const time_since_last_even_month = 1 + Math.round((today.getTime() - last_even_month_date_zero.getTime()) / one_day_in_millis);
+      window.alert("last even month was " + time_since_last_even_month + " days ago")
+      for (let entry of entries) {
+        renderEntry(last_even_month_date_zero, time_since_last_even_month, parent, entry);
+      }
+    }
+
+    window.onload = () => {
       //todo: figure out how many days its been since the last even month
       //from that, figure out what entries should be displayed
       //loop on them to render
-      const entries = [
-        new Entry("test1", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nibh lectus, aliquam id ipsum et, tempor commodo magna. Nam non mi felis. Etiam dictum vulputate blandit. Integer ac urna quis lorem dictum porttitor in sed ligula. Morbi eget risus non mauris volutpat tempor. Etiam nec venenatis tellus. Quisque quis dui ut mi tempus convallis nec eu ligula. Nunc eu fermentum quam. Mauris felis dui, commodo a commodo in, rhoncus a ex. Maecenas vel tortor blandit, semper augue id, ullamcorper odio. Nam in leo sit amet lacus fermentum ornare. Fusce dolor est, euismod pretium enim nec, eleifend condimentum velit. Aenean nec volutpat felis, sit amet tristique massa. Nullam ac est leo.", 0, "tests,debugging,design"),
-        new Entry("test2", "lorem ipsum etc", 0, "tests,debugging,design")
 
-      ]
-      const parent = document.querySelector("#journal");
-      for(let entry of entries){
-        renderEntry(parent,entry);
-      }
+      renderEntriesTillToday();
     }
   </script>
 </head>
 
 
 <body>
-  <div id= "journal">
+  <div id="journal">
 
   </div>
 

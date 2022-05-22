@@ -7,7 +7,7 @@ class Entry {
     icon = "clown.png";
     words_of_the_day = "wings,irony";
 
-    constructor(title, text, date, words_of_the_day) {
+    constructor(date, title, text, words_of_the_day) {
         this.title = title;
         this.text = text;
         this.date = date;
