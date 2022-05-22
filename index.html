@@ -12,7 +12,7 @@
 
 
     const renderEntry = (reference_date, days_since_last_even, parent, entry) => {
-      if (entry.date > days_since_last_even) {
+      if (entry.date >= days_since_last_even) {
         return;
       }
 
@@ -90,7 +90,6 @@
       const last_even_month_date_zero = new Date(today.getFullYear(), last_even_month, 1)
 
       const time_since_last_even_month = 1 + Math.round((today.getTime() - last_even_month_date_zero.getTime()) / one_day_in_millis);
-      window.alert("last even month was " + time_since_last_even_month + " days ago")
       for (let entry of entries) {
         renderEntry(last_even_month_date_zero, time_since_last_even_month, parent, entry);
       }
