@@ -1,0 +1,81 @@
+<html>
+
+<head>
+  <title>Clown Diary</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="alt.ico" />
+  <script src ="entry.js"></script>
+  <script>
+
+
+    const renderEntry = (parent,entry)=>{
+        console.log("TODO")
+        const ele = document.createElement("div");
+        ele.id = "entry";
+        const container = document.createElement("div");
+        container.id="container";
+        
+
+        const text = document.createElement("div");
+        text.innerHTML = entry.text;
+        text.id = "text";
+        const icon = document.createElement("img");
+        icon.src =entry.icon;
+        icon.id ="icon";
+        const title = document.createElement("div");
+        title.id="title";
+        title.innerHTML = entry.title;
+        const date = document.createElement("div");
+        date.id="date";
+        date.innerHTML = "TODO: CALCULATE DATE FROM LAST EVEN MONTH";
+        const wordsContainer = document.createElement("div");
+        wordsContainer.id="words-container";
+
+        const label = document.createElement("span");
+        label.id="label";
+        label.innerHTML = `Words Of The Day:`;
+
+        const words = document.createElement("span");
+        words.id="words";
+        words.innerHTML = entry.words_of_the_day;
+        wordsContainer.append(label);
+        wordsContainer.append(words);
+
+        container.append(icon);
+        container.append(text);
+
+        ele.append(title);
+        ele.append(date);
+        ele.append(container);
+
+        ele.append(wordsContainer);
+
+        parent.append(ele);
+    }
+
+    window.onload = ()=>{
+      //todo: figure out how many days its been since the last even month
+      //from that, figure out what entries should be displayed
+      //loop on them to render
+      const entries = [
+        new Entry("test1", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nibh lectus, aliquam id ipsum et, tempor commodo magna. Nam non mi felis. Etiam dictum vulputate blandit. Integer ac urna quis lorem dictum porttitor in sed ligula. Morbi eget risus non mauris volutpat tempor. Etiam nec venenatis tellus. Quisque quis dui ut mi tempus convallis nec eu ligula. Nunc eu fermentum quam. Mauris felis dui, commodo a commodo in, rhoncus a ex. Maecenas vel tortor blandit, semper augue id, ullamcorper odio. Nam in leo sit amet lacus fermentum ornare. Fusce dolor est, euismod pretium enim nec, eleifend condimentum velit. Aenean nec volutpat felis, sit amet tristique massa. Nullam ac est leo.", 0, "tests,debugging,design"),
+        new Entry("test2", "lorem ipsum etc", 0, "tests,debugging,design")
+
+      ]
+      const parent = document.querySelector("#journal");
+      for(let entry of entries){
+        renderEntry(parent,entry);
+      }
+    }
+  </script>
+</head>
+
+
+<body>
+  <div id= "journal">
+
+  </div>
+
+</body>
+
+</html>
