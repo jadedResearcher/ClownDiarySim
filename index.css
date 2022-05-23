@@ -49,6 +49,8 @@ p{
 
 #words{
   margin-left: 10px;
+  color: #b8c3cb;
+  text-decoration: underline;
 }
 
 #label{
