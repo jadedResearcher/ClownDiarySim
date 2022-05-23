@@ -96,6 +96,57 @@ const entries = [
     
     <p>I wish the others got it. I wish they&rsquo;d understand.</p>`, "apparently, clogged, unclog, matter-of-factly, rambles, fuzzy ")
 
+    ,new Entry(25,"Day 26", `<p>They found out.</p>
+
+    <p>Devona found the spot I&rsquo;d been hiding in, and she saw Harold&rsquo;s hand. She panicked and took a picture, and then Harold scuttled away. She asked if I was okay, and I think I got angry, because I started yelling at her for scaring it. Then she started crying, and I didn&rsquo;t know what to do about that, so I left.</p>
+    
+    <p>Then later her brother found me, and he punched me. He said I was going to &lsquo;get it&rsquo; if I made his sister cry like that again. So I punched him back, and then we started fighting.</p>
+    
+    <p>He is good at it, but not as good as me. I had him on the floor when Devona showed up again, and she was a large bird with sharp teeth and a mouth on her stomach. She charged at me and bit me a bunch of times, but again, she&rsquo;s not as good at fighting as I am, so I knocked her out and I left, but then her brother turned into a huge bird, and the same thing happened. I wasn&rsquo;t incredibly hurt, but I had a pretty big gash on my arm from all the biting, so I went to find somewhere to cover it up.</p>
+    
+    <p>I had some time on my own to tend to my wounds before Viktor and Khana showed up. They asked me what was going on, and if I was okay, and they did their best to cover up my arm. I told them about the hole and about Devona finding the hole, and about how then they turned into birds, and Viktor nodded. They said they&rsquo;d look into it, but that I needed to stop obsessing over that hole and that I needed to rest. So now I&rsquo;m laying down.</p>
+    
+    <p>I don&rsquo;t want to stay around for too long. They&rsquo;re going to find out about the hole, and then they&rsquo;re going to clog up the hole, and then Harold will be trapped back there. I think I&rsquo;m going to leave. That way they can&rsquo;t find me. That way I can just wait until Harold comes back.</p>`, "obsessing ")
+    ,new Entry(26,"Day 27", `<p>Harold isn&rsquo;t here today.</p>`, "none")
+    ,new Entry(27,"Day 28", `<p>Harold isn&rsquo;t here today, either.</p>`, "none")
+    ,new Entry(28,"Day 29", `<p>Nothing to report.</p>`, "none")
+    ,new Entry(33,"Day 34", `<p>Maybe Harold isn&rsquo;t coming back.</p>
+
+    <p>I don&rsquo;t know what to do about that. I don&rsquo;t feel as bad as before. I guess it was right that when you wait for long enough, you get used to it. It&rsquo;s only been a week, and I feel like I could wait forever.</p>
+    
+    <p>I could quit now and go back to the team, but I don&rsquo;t want to go back. I don&rsquo;t want them to be upset with me about what I did. If they punch me again I&rsquo;m going to punch them back, and then we&rsquo;ll have to fight, and I don&rsquo;t want that.</p>
+    
+    <p>I&rsquo;d rather stay here and wait. It&rsquo;s a lot easier to wait. </p>`, "none")
+    ,new Entry(41,"Day XX", `<p>I lost count. I forgot what I wrote here. But I&rsquo;m writing because I saw it. I finally saw it.</p>
+
+    <p>I looked at the hole today. It was standing outside of the hole like it was waiting for me.</p>
+    
+    <p>Its body is human, but like if it was left on a shelf and forgotten, covered in dust head to toe. Its hair is long and unkempt all over. It has a uniform but it&rsquo;s very dirty. You can&rsquo;t tell if it was any color other than brown. Its eyes are bloodshot red.</p>
+    
+    <p>I know because it looked at me.</p>
+    
+    <p>I&rsquo;m going to go talk to Harold again. I know what I have to do now.</p>`, "none")
+
+
+    ,new Entry(42,"Day XX+1", `<p>Day XX+1:</p>
+
+    <p>I don&rsquo;t know where to start.</p>
+    
+    <p>I woke up today on the Training Team bed. They were all looking at me and they looked upset. They said that they found me screaming about clocks and trying to dig down with my nails. I can tell that&rsquo;s true because right now they&rsquo;re covered in bandages and they hurt a lot when I write. I can tell it&rsquo;s been a while because I haven&rsquo;t shaved. The clean-cut one (I don&rsquo;t know his name) asked me if I was okay. I told him I wasn&rsquo;t sure. He then asked me what I remembered. I told him I remembered a hole person and then a sharp pain in my arm. He told me that made sense, because they found a bullet in me. So I got shot. They currently think the bullet made me go crazy. I don&rsquo;t know if that&rsquo;s true but I don&rsquo;t know if it&rsquo;s not true either.</p>
+    
+    <p>Khana came to check on me. He said it was good to know I didn&rsquo;t &lsquo;fuck off and die&rsquo;. I told him I was sorry I didn&rsquo;t tell him sooner and he said &lsquo;yeah you should have&rsquo; in that tone he does when he&rsquo;s angry. Then he sighed and said that it was &lsquo;water under the bridge&rsquo; and that at least I was okay.</p>
+    
+    <p>Devona&rsquo;s brother (his name is Neville) showed up as well. He apologized for beating me up but also said that he wasn&rsquo;t apologizing for beating me up but more because he beat me up without finding out why he was doing that. I said it was okay. He said I&rsquo;m really good at fighting and I told him that I know that. He asked for some tips and I told him I&rsquo;m not very good at teaching but we could fight later and he was excited about that.</p>
+    
+    <p>Then Devona showed up and she didn&rsquo;t say anything. I told her I was sorry that I made her cry. She told me she was sorry that she scared me. She asked me if I was angry at her. I said I wasn&rsquo;t. Then Neville asked if she&rsquo;d like to watch us fight and she asked if we could watch a fighting movie instead. I was fine with that and so was he so we&rsquo;re doing that later.</p>
+    
+    <p>The reason I&rsquo;m writing all of this down is because I was asked to. Apparently their Captain wants my journal. For &lsquo;research&rsquo;. They&rsquo;ll even trade me a new notebook and a nice pen for it. They could have it be clown themed but I don&rsquo;t think I like clowns anymore.</p>
+    
+    <p>I feel bad about giving them a book that also has my bad thoughts. But they say their captain is very shy and she doesn&rsquo;t say a word. I also don&rsquo;t feel comfortable holding this anymore. It&rsquo;s all a really bad memory.</p>
+    
+    <p>So this is the last entry on this notebook. I hope this is all useful. And I&rsquo;m sorry I didn&rsquo;t tell everything sooner. I just wanted to be understood.</p>
+    
+    <p>I hope the next one has a nice painting of a bird on it.</p>`, "none")
 
   ]
 
