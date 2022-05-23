@@ -1,4 +1,5 @@
 //todo, do i want the words of the day to lead anywhere?
+//https://www.textfixer.com/html/convert-text-html.php
 const entries = [
     new Entry(0,"Day 1", `
     <p dir="ltr"><span>Viktor said that I should have a diary. They said it would help me better remember things and concepts. I thought about it and I think they&rsquo;re right. I think a lot better when I&rsquo;m writing because I can look back at what I wrote and I don&rsquo;t have to do it all at once.&nbsp;</span></p>
