@@ -10,14 +10,27 @@
   <script>
     const one_day_in_millis = 1000 * 60 * 60 * 24
 
+    function getParameterByName(name, url) {
+      if (!url) {
+        url = window.location.href;
+      }
+      name = name.replace(/[[\]]/g, "\\$&");
+      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
 
     const renderEntry = (reference_date, days_since_last_even, parent, entry) => {
-      if (entry.date >= days_since_last_even) {
+      if (entry.date >= days_since_last_even && !(getParameterByName("truth", null) )) {
         return;
       }
 
       const calculated_date = new Date();
       calculated_date.setDate(reference_date.getDate() + entry.date);
+      calculated_date.setYear(2007)
       const ele = document.createElement("div");
       ele.id = "entry";
       const container = document.createElement("div");
@@ -30,7 +43,7 @@
       const icon = document.createElement("img");
       icon.src = entry.icon;
       icon.id = "icon";
-      const title = document.createElement("div");
+      const title = document.createElement("h2");
       title.id = "title";
       title.innerHTML = entry.title;
       const date = document.createElement("div");
@@ -79,6 +92,7 @@
     const renderEntriesTillToday = () => {
       const parent = document.querySelector("#journal");
       const today = new Date();
+      today.setHours(0); //we don't care about the hours
       //also yes its "even" by 0 index, not one. 
       //so even months should be january, march, may, july, september, november
       //this'll also prevent us from having to care about 0 minus 1 being not valid
@@ -90,7 +104,8 @@
       const last_even_month_date_zero = new Date(today.getFullYear(), last_even_month, 1)
 
       const time_since_last_even_month = 1 + Math.round((today.getTime() - last_even_month_date_zero.getTime()) / one_day_in_millis);
-      for (let entry of entries) {
+      const reversed_entries = entries.reverse();
+      for (let entry of reversed_entries) {
         renderEntry(last_even_month_date_zero, time_since_last_even_month, parent, entry);
       }
     }
@@ -107,6 +122,7 @@
 
 
 <body>
+  <h1 id="title">Yongiki</h1>
   <div id="journal">
 
   </div>
