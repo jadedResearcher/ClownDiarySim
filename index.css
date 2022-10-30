@@ -19,12 +19,12 @@ body {
 p{
   margin-top: 0px;
 }
-#entry{
+.entry{
   padding: 10px;
   margin: 10px;
 }
 
-#title{
+.title{
   font-size: 24px;
   font-weight: bolder;
   color: #b8c3cb;
@@ -32,32 +32,32 @@ p{
   text-decoration: underline;
 }
 
-#date{
+.date{
   font-size: 12px;
   font-weight: lighter;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-#words-container{
+.words-container{
   margin-top: 10px;
 }
 
-#text{
+.text{
   font-size: 18px;
 }
 
-#words{
+.words{
   margin-left: 10px;
   color: #b8c3cb;
   text-decoration: underline;
 }
 
-#label{
+.label{
   font-weight: bolder;
 }
 
-#icon{
+.icon{
   width: 100px;
   height: 100px;
   float: left;

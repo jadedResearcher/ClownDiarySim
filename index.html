@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <title>Clown Diary</title>
+  <title>Dear Diary</title>
   <link rel="stylesheet" href="index.css">
   <link rel="icon" href="alt.ico" />
   <script src="entry.js"></script>
@@ -23,42 +23,38 @@
     }
 
 
-    const renderEntry = (reference_date, days_since_last_even, parent, entry) => {
-      if (entry.date >= days_since_last_even && !(getParameterByName("truth", null) )) {
-        return;
-      }
+    const renderEntry = (parent, entry) => {
 
-      const calculated_date = new Date();
-      calculated_date.setDate(reference_date.getDate() + entry.date);
-      calculated_date.setYear(2007)
+
       const ele = document.createElement("div");
-      ele.id = "entry";
+      ele.className = "entry";
       const container = document.createElement("div");
       container.id = "container";
 
 
       const text = document.createElement("div");
       text.innerHTML = entry.text;
-      text.id = "text";
+      text.className = "text";
       const icon = document.createElement("img");
-      icon.src = entry.icon;
-      icon.id = "icon";
+      //icon.src = entry.icon;
+      icon.style.backgroundColor = "rgba(220,243,255,0.3)";
+      icon.className = "icon";
       const title = document.createElement("h2");
-      title.id = "title";
+      title.className = "title";
       title.innerHTML = entry.title;
       const date = document.createElement("div");
-      date.id = "date";
-      date.innerHTML = calculated_date.toLocaleDateString();
+      date.className = "date";
+      date.innerHTML = "July 10th, 2008";
       const wordsContainer = document.createElement("div");
       wordsContainer.id = "words-container";
 
       const label = document.createElement("span");
-      label.id = "label";
-      label.innerHTML = `Words Of The Day:`;
+      label.className = "label";
+      label.innerHTML = `Mood:`;
 
       const words = document.createElement("span");
-      words.id = "words";
-      words.innerHTML = entry.words_of_the_day;
+      words.className = "words";
+      words.innerHTML = "Meloncholy"
       wordsContainer.append(label);
       wordsContainer.append(words);
 
@@ -90,41 +86,29 @@
        unless you waste
     */
     const renderEntriesTillToday = () => {
+      renderEntry(document.querySelector("#journal"), riaEntry);
+      renderEntry(document.querySelector("#journal"), entry);
 
-      console.log("%cJR NOTE: If you wanted to visualize our cast, I'd look here: http://farragofiction.com/TwoGayJokes/Stories/loop2_infoteamandother.png","font-weight: bold;font-family: 'Courier New', monospace;color:#06FFC9; background: #346F3F; padding:10px; border-radius: 13px; font-size:13px;");
-      const parent = document.querySelector("#journal");
-      const today = new Date();
-      today.setHours(0); //we don't care about the hours
-      //also yes its "even" by 0 index, not one. 
-      //so even months should be january, march, may, july, september, november
-      //this'll also prevent us from having to care about 0 minus 1 being not valid
-      //since zero is even 
-      let last_even_month = today.getMonth() % 2 === 0 ? today.getMonth() : today.getMonth() - 1;
-
-      //since we KNOW that january is an even month for our purposes, we don't even have to care about year roll over
-      //convinient
-      const last_even_month_date_zero = new Date(today.getFullYear(), last_even_month, 1)
-
-      const time_since_last_even_month = 1 + Math.round((today.getTime() - last_even_month_date_zero.getTime()) / one_day_in_millis);
-      const reversed_entries = entries.reverse();
-      for (let entry of reversed_entries) {
-        renderEntry(last_even_month_date_zero, time_since_last_even_month, parent, entry);
-      }
     }
 
     window.onload = () => {
-      //todo: figure out how many days its been since the last even month
-      //from that, figure out what entries should be displayed
-      //loop on them to render
-
-      renderEntriesTillToday();
+      const today = new Date();
+      if((today.getDate()===10 && today.getMonth()===6) || getParameterByName("truth",null)){ //0 is january
+        renderEntriesTillToday();
+      }else if((today.getDate()===4 && today.getMonth()===11) || getParameterByName("truth",null)){ //0 is january){
+        renderEntriesTillToday();
+      }else{
+        const ele = document.createElement("div");
+        ele.innerHTML = "This User has not made a post yet! Say 'Hi'!";
+        document.querySelector("#journal").append(ele);
+      }
     }
   </script>
 </head>
 
 
 <body>
-  <h1 id="title">Yongiki</h1>
+  <h1 id="title">Witherby</h1>
   <div id="journal">
 
   </div>
