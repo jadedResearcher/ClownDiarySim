@@ -86,16 +86,24 @@
        unless you waste
     */
     const renderEntriesTillToday = () => {
+      renderEntry(document.querySelector("#journal"), yongkiEntry);
+      renderEntry(document.querySelector("#journal"), camilleEntry);
+
       renderEntry(document.querySelector("#journal"), riaEntry);
       renderEntry(document.querySelector("#journal"), entry);
 
     }
 
     window.onload = () => {
+      //you can only read it on someones birthday
       const today = new Date();
       if((today.getDate()===10 && today.getMonth()===6) || getParameterByName("truth",null)){ //0 is january
         renderEntriesTillToday();
-      }else if((today.getDate()===4 && today.getMonth()===11) || getParameterByName("truth",null)){ //0 is january){
+      }else if((today.getDate()===4 && today.getMonth()===09) || getParameterByName("truth",null)){ //0 is january){
+        renderEntriesTillToday();
+      }else if((today.getDate()===14 && today.getMonth()===3) || getParameterByName("truth",null)){ //0 is january){
+        renderEntriesTillToday();
+      }else if((today.getDate()===30 && today.getMonth()===11) || getParameterByName("truth",null)){ //0 is january){
         renderEntriesTillToday();
       }else{
         const ele = document.createElement("div");
