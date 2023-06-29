@@ -25,12 +25,15 @@
 
     const renderEntry = (reference_date, days_since_last_even, parent, entry) => {
       if (entry.date >= days_since_last_even && !(getParameterByName("truth", null) )) {
-        return;
+       return;
       }
 
       const calculated_date = new Date();
       calculated_date.setDate(reference_date.getDate() + entry.date);
       calculated_date.setYear(2007)
+      //JR NOTE: wasn't doing this before and it made it display wrong months in odd months
+      calculated_date.setMonth(reference_date.getMonth())
+
       const ele = document.createElement("div");
       ele.id = "entry";
       const container = document.createElement("div");
